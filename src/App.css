@@ -1,38 +1,143 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  user-select: none;
+}
+.container::before, .container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
+  background: #161616;
+  
 }
+.container{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  
+}
+.container::before{
+  top: -100px;
+  left: 50px;
+  background: linear-gradient(#f0f, #f00);
+  clip-path: circle(20% at 25% 30%);
+}
+.container::after{
+  top: 100px;
+  left: 50px;
+  background: linear-gradient(#e91e63, #2196f3);
+  clip-path: circle(20% at 70% 65%);
+}
+.container .card-wrapper .content{
+position: relative;
+display: grid;
+place-items: center; 
+text-align: center;
+z-index: 1;
+width: 400px;
+min-height: 325px;
+box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5); 
+border-radius: 15px; 
+border-top: 1px solid rgba(255, 255, 255, 0.5); 
+border-left: 1px solid rgba(255, 255, 255, 0.5); 
+background: rgba(255, 255, 255, 0.1) !important;
+backdrop-filter: blur(5px);
+overflow: hidden;
 
-.App-link {
-  color: #61dafb;
+ }
+@media screen and (max-width: 600px){
+  .container .card-wrapper .content{
+    position: relative;
+    display: grid;
+    place-items: center; 
+    text-align: center;
+    z-index: 1;
+    width: 300px;
+    min-height: 325px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5); 
+    border-radius: 15px; 
+    border-top: 1px solid rgba(255, 255, 255, 0.5); 
+    border-left: 1px solid rgba(255, 255, 255, 0.5); 
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    
+     }
 }
+@media screen and (max-width: 390px){
+  .container .card-wrapper .content{
+    position: relative;
+    display: grid;
+    place-items: center; 
+    text-align: center;
+    z-index: 1;
+    width: 250px;
+    min-height: 300px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5); 
+    border-radius: 15px; 
+    border-top: 1px solid rgba(255, 255, 255, 0.5); 
+    border-left: 1px solid rgba(255, 255, 255, 0.5); 
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    
+     }
+}
+.container .card-wrapper .content h3 {
+font-size: 1.8em;
+line-height: 1.8em;
+color: #fff;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
+h3{
+  margin-top: 50px;
+  
+} 
+.container .card-wrapper .content .input-group {
+  font-size: 1em;
+  color: #fff;
+  font-weight: 300;
+  }
+  
+.container .card-wrapper .content  {
+  display: inline-block;
+  background: #fff;
+  padding: 8px 20px; 
+  margin-top: 15px; 
+  color: #000;
+  border-radius: 20px; text-decoration: none;
+  font-weight: 500;
+  }
+  .form-control:focus {
+    box-shadow: none;
+    }
+  .typing{
+    text-shadow:1px 1px 10px #2196f3;
+    position: relative;
+    font-family: 'Secular One', sans-serif;
+    font-style: normal;
+    /* font-weight: 500; */
+    color: #FFFFFF;
+  }
+  .card{
+    position: relative;
+    display: flex ;
+    flex-direction: row ;
+  }
+  .card-img-top{
+    width:50%;
+    height: auto;
+  }
