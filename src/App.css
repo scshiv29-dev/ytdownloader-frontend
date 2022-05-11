@@ -138,7 +138,20 @@ h3{
     position: relative;
     display: flex ;
     flex-direction: row ;
+    animation: fadeInAnimation ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
   }
+  
+  @keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
   .card-img-top{
     width:50%;
     height: auto;
@@ -173,4 +186,18 @@ h3{
       to {
   transform: rotate(360deg);
       }
+  }
+  button.btn{
+    animation: fade 1000ms ease-in-out forwards;
+    transform: translateX(50%);
+  }
+  @keyframes fade {
+    0% {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }

@@ -15,13 +15,13 @@ const Videos = ({videos}) => {
         <table className="table table-success table-hover table-striped">
             <thead>
             <tr className='table-success'>
-            <td colSpan={3} className="table-success fw-bolder">Video: <big> {videos.title}</big></td>
+            <td colSpan={2} className="table-success fw-bolder">Video: <big> {videos.title}</big></td>
             </tr>
             </thead>
             <thead >
             <tr className='table-success'>
             <td >Resolution</td>
-            <td >File Size</td>
+            {/* <td >File Size</td> */}
             <td >URL</td>
             </tr>
             </thead>
@@ -29,7 +29,7 @@ const Videos = ({videos}) => {
             {videoList.slice(1).map(video => (
                 <tr key={video.id}>
                     <td>{video.resolution}</td>
-                    <td>{(parseInt(video._filesize)/10000000).toFixed(2)}mb</td>
+                    {/* <td>{(parseInt(video._filesize)/1000000).toFixed(2)}mb</td> */}
                     <td><a href={video.url}>Link</a></td>
                 </tr>
             ))}
@@ -38,14 +38,14 @@ const Videos = ({videos}) => {
         <table className="table table-success mt-5 table-hover table-striped">
             <thead>
             <tr className='table-success'>
-            <td colSpan={4} className="table-success fw-bolder">Audio: <big> {videos.title}</big></td>
+            <td colSpan={3} className="table-success fw-bolder">Audio: <big> {videos.title}</big></td>
             </tr>
             </thead>
             <thead >
             <tr className='table-success'>
             <td >Audio Abr </td>
             <td >Audio Type </td>
-            <td >File Size</td>
+            {/* <td >File Size</td> */}
             <td >URL</td>
             </tr>
             </thead>
@@ -54,7 +54,7 @@ const Videos = ({videos}) => {
                 <tr key={audio.id}>
                     <td>{audio.abr}  </td>
                     <td>{audio.subtype}</td>
-                    <td>{(parseInt(audio._filesize)/10000000).toFixed(2)}mb</td>
+                    {/* <td>{(parseInt(audio._filesize)/10000000).toFixed(2)}mb</td> */}
                     <td><a href={audio.url}>Link</a></td>
                 </tr>
             ))}

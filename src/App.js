@@ -9,20 +9,23 @@ function App() {
   const [url, setUrl] = useState("");
   const getSecondPart = (text) => {
     let arr = text.split("=");
+    let arr2 = text.split("be/");
     console.log(arr[1]);
-    return arr[1];
+    console.log(arr2[1]);
+    if (arr[1] !== undefined)return arr[1];
+    else return arr2[1];
   };
   const getData = async (e) => {
     e.preventDefault();
     setData([]);
     setFlag(true);
-    const response = await fetch(`https://87epkm.deta.dev/get/${url}`, {
+    const response = await fetch(`https://ytlaw.herokuapp.com/get/${url}`, {
       headers: {
         Accept: "application/json",
       },
     });
 
-    const data = await response.json();
+    const data = await response.json().catch((err) => {console.log(err)});
     setData(data);
     
   };
