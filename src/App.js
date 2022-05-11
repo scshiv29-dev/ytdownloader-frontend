@@ -1,11 +1,11 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 import Typewriter from "typewriter-effect";
 import Videos from "./Videos";
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 function App() {
   const [data, setData] = useState([]);
-  const [streams, setStreams] = useState([]);
+  const [flag, setFlag] = useState(false);
   const [url, setUrl] = useState("");
   const getSecondPart = (text) => {
     let arr = text.split("=");
@@ -14,6 +14,8 @@ function App() {
   };
   const getData = async (e) => {
     e.preventDefault();
+    setData([]);
+    setFlag(true);
     const response = await fetch(`https://87epkm.deta.dev/get/${url}`, {
       headers: {
         Accept: "application/json",
@@ -22,9 +24,12 @@ function App() {
 
     const data = await response.json();
     setData(data);
-    setStreams(data.streams);
-    // console.log(data);
+    
   };
+  const handleInput = () => {
+    const input = document.getElementById("GetVideo");
+    input.classList.remove("d-none");
+  }
   return (
     <div>
     <main className="container">
@@ -38,7 +43,7 @@ function App() {
           loop: true,
           }}
           onInit={(typewriter) => {
-            typewriter.typeString('Enter the youtube URL')
+            typewriter.typeString('Paste youtube URL')
             .pauseFor(2500)
             .deleteAll()       
             .start();
@@ -55,10 +60,12 @@ function App() {
           aria-describedby="addon-wrapping" 
           value={url}
           onChange={(e) => setUrl(getSecondPart(e.target.value))}
+          onInput={handleInput}
           />
           </div>
           <button
-            className="btn btn-outline-warning fw-bolder mt-5"
+            id="GetVideo"
+            className="btn btn-outline-warning d-none fw-bolder mt-5"
             type="submit"
             onClick={(e) => {
               getData(e);
@@ -73,7 +80,7 @@ function App() {
     
     </main>
     
-    {typeof data.stream != "undefined" ? <Videos videos={data} /> :<></>}
+    {flag ? typeof data.stream != "undefined" ? <><Videos videos={data} /></> :<><div id="spinner" className="spinner"></div></> : <></>}
     </div>
   );
 }
