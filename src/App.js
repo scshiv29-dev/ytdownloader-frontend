@@ -10,8 +10,8 @@ function App() {
   const getSecondPart = (text) => {
     let arr = text.split("=");
     let arr2 = text.split("be/");
-    console.log(arr[1]);
-    console.log(arr2[1]);
+    // console.log(arr[1]);
+    // console.log(arr2[1]);
     if (arr[1] !== undefined)return arr[1];
     else return arr2[1];
   };
@@ -19,14 +19,15 @@ function App() {
     e.preventDefault();
     setData([]);
     setFlag(true);
-    const response = await fetch(`https://ytlaw.herokuapp.com/get/${url}`, {
+    const errorElement = document.getElementById("Error")
+    if (errorElement.classList.length <=0)   errorElement.classList.add("d-none");
+    fetch(`https://ytlaw.herokuapp.com/get/${url}`, {
       headers: {
         Accept: "application/json",
       },
-    });
+    }).then(res => {return res.json()}).then(data => {setData(data)}).catch(err => {errorElement.classList.remove("d-none"); setFlag(false)})
 
-    const data = await response.json().catch((err) => {console.log(err)});
-    setData(data);
+    
     
   };
   const handleInput = () => {
@@ -84,6 +85,7 @@ function App() {
     </main>
     
     {flag ? typeof data.stream != "undefined" ? <><Videos videos={data} /></> :<><div id="spinner" className="spinner"></div></> : <></>}
+    <div id="Error" className="d-none "><h3 className="typing text-capitalize fw-bolder">Sorry,Unable to get that Video</h3></div>
     </div>
   );
 }
