@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Videos = ({videos}) => {
+const Videos = ({videos,url}) => {
   
   const videoList = videos.stream.filter(video => video.type === "video" && video.abr !== null )
     const audioList = videos.stream.filter(video => video.type === "audio")
@@ -9,8 +9,9 @@ const Videos = ({videos}) => {
     <div className='container mt-5'>
       <div className=" card-wrapper">
       <div className="content card">
+      <iframe width="560" height="315" src={`https://www.youtube.com/embed/${url}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-        <img src={videos.thumbnail} className="card-img-top" alt="..." />
+        {/* <img src={videos.thumbnail} className="card-img-top" alt="..." /> */}
         <div className="card-body">
         <table className="table table-success table-hover table-striped">
             <thead>

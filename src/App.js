@@ -3,15 +3,19 @@ import "./App.css";
 import Typewriter from "typewriter-effect";
 import Videos from "./Videos";
 import React, { useState} from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
+  toast.error("msg from devs: Website wont work at end of the month because backend is hosted on heroku free dyno",{
+    toastId: 'success1',
+});
+
   const [data, setData] = useState([]);
   const [flag, setFlag] = useState(false);
   const [url, setUrl] = useState("");
   const getSecondPart = (text) => {
     let arr = text.split("=");
     let arr2 = text.split("be/");
-    // console.log(arr[1]);
-    // console.log(arr2[1]);
     if (arr[1] !== undefined)return arr[1];
     else return arr2[1];
   };
@@ -36,6 +40,7 @@ function App() {
   }
   return (
     <div>
+    <ToastContainer />
     <main className="container">
       <div className="card-wrapper">
         <form className="content">
@@ -80,11 +85,10 @@ function App() {
           <p className="mt-5 mb-3 text-muted">© 2022</p>
         </form>
       </div>
-
     
     </main>
     
-    {flag ? typeof data.stream != "undefined" ? <><Videos videos={data} /></> :<><div id="spinner" className="spinner"></div></> : <></>}
+    {flag ? typeof data.stream != "undefined" ? <><Videos videos={data} url={url}/></> :<><div id="spinner" className="spinner"></div></> : <></>}
     <div id="Error" className="d-none "><h3 className="typing text-capitalize fw-bolder">Sorry,Unable to get that Video</h3></div>
     </div>
   );
