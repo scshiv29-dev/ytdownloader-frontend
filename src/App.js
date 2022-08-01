@@ -25,7 +25,7 @@ function App() {
     setFlag(true);
     const errorElement = document.getElementById("Error")
     if (errorElement.classList.length <=0)   errorElement.classList.add("d-none");
-    fetch(`http://home.linkjaye.ga/get/${url}`, {
+    fetch(`https://home.linkjaye.ga/get/${url}`, {
       headers: {
         Accept: "application/json",
       },
