@@ -3,12 +3,9 @@ import "./App.css";
 import Typewriter from "typewriter-effect";
 import Videos from "./Videos";
 import React, { useState} from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
-  toast.error("msg from devs: Website wont work at end of the month because backend is hosted on heroku free dyno",{
-    toastId: 'success1',
-});
+ 
 
   const [data, setData] = useState([]);
   const [flag, setFlag] = useState(false);
@@ -25,7 +22,7 @@ function App() {
     setFlag(true);
     const errorElement = document.getElementById("Error")
     if (errorElement.classList.length <=0)   errorElement.classList.add("d-none");
-    fetch(`https://ytlaw.herokuapp.com/get/${url}`, {
+    fetch(`https://home.linkjaye.ga/get/${url}`, {
       headers: {
         Accept: "application/json",
       },
@@ -40,7 +37,7 @@ function App() {
   }
   return (
     <div>
-    <ToastContainer />
+    
     <main className="container">
       <div className="card-wrapper">
         <form className="content">
