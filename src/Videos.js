@@ -36,7 +36,7 @@ const Videos = ({videos,url}) => {
             ))}
               </tbody>      
         </table>
-        {/* <table className="table table-success mt-5 table-hover table-striped">
+        <table className="table table-success mt-5 table-hover table-striped">
             <thead>
             <tr className='table-success'>
             <td colSpan={3} className="table-success fw-bolder">Audio: <big> {videos.title}</big></td>
@@ -60,7 +60,7 @@ const Videos = ({videos,url}) => {
                 </tr>
             ))}
               </tbody>      
-        </table> */}
+        </table>
         </div>
         </div>
       </div>
