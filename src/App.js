@@ -22,7 +22,7 @@ function App() {
     setFlag(true);
     const errorElement = document.getElementById("Error")
     if (errorElement.classList.length <=0)   errorElement.classList.add("d-none");
-    fetch(`https://home.linkjaye.ga/get/${url}`, {
+    fetch(`https://draw.shivamchaudhary.pro/get/${url}`, {
       headers: {
         Accept: "application/json",
       },
