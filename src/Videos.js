@@ -46,7 +46,7 @@ const Videos = ({videos,url}) => {
             <tr className='table-success'>
             <td >Audio Abr </td>
             <td >Audio Type </td>
-            {/* <td >File Size</td> */}
+            
             <td >URL</td>
             </tr>
             </thead>
@@ -55,7 +55,7 @@ const Videos = ({videos,url}) => {
                 <tr key={audio.id}>
                     <td>{audio.abr}  </td>
                     <td>{audio.subtype}</td>
-                    {/* <td>{(parseInt(audio._filesize)/10000000).toFixed(2)}mb</td> */}
+                    
                     <td><a href={audio.url}>Link</a></td>
                 </tr>
             ))}
